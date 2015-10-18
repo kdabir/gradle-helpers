@@ -8,10 +8,10 @@ cache:
     - $HOME/.gradle/wrapper/
 
 install:
-  - TERM=dumb gradle -q assemble
+  - TERM=dumb gradle -q assemble --stacktrace
 
 script:
-  - TERM=dumb gradle check
+  - TERM=dumb gradle check --stacktrace
 
 jdk:
   - oraclejdk8
