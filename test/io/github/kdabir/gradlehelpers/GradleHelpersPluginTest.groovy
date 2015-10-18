@@ -20,7 +20,6 @@ class GradleHelpersPluginTest {
         Project project = ProjectBuilder.builder().build()
         project.pluginManager.apply GradleHelpersPlugin
 
-
         assert project.helpers.methodsOf(new Object()) == ["equals", "getClass", "hashCode",
                                                            "notify", "notifyAll", "toString", "wait"]
     }

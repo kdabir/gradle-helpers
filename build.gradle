@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-  compile localGroovy()
+    compile localGroovy()
 }
 
 sourceSets {
@@ -21,15 +21,15 @@ version = "0.0.1"
 group = "io.github.kdabir.gradlehelpers"
 
 pluginBundle {
-  website = 'https://github.com/kdabir/gradle-helpers'
-  vcsUrl = 'https://github.com/kdabir/gradle-helpers'
-  description = 'Gradle build script helpers'
-  tags = ['utility', 'helper', 'functions' ]
+    website = 'https://github.com/kdabir/gradle-helpers'
+    vcsUrl = 'https://github.com/kdabir/gradle-helpers'
+    description = 'Gradle build script helpers'
+    tags = ['utility', 'helper', 'functions']
 
-  plugins {
-    gradleHelpers {
-      id = 'io.github.kdabir.gradle-helpers'
-      displayName = 'Gradle build script helpers'
+    plugins {
+        gradleHelpers {
+            id = 'io.github.kdabir.gradle-helpers'
+            displayName = 'Gradle build script helpers'
+        }
     }
-  }
 }
