@@ -1,0 +1,35 @@
+plugins {
+    id "groovy"
+    id "idea"
+    id "maven"
+    id "java-gradle-plugin"
+    id "com.gradle.plugin-publish" version "0.9.1"
+}
+
+dependencies {
+  compile localGroovy()
+}
+
+sourceSets {
+    main.groovy.srcDir 'src'
+    main.resources.srcDir 'resources'
+    test.groovy.srcDir 'test'
+    test.resources.srcDir 'testResources'
+}
+
+version = "0.0.1"
+group = "io.github.kdabir.gradlehelpers"
+
+pluginBundle {
+  website = 'https://github.com/kdabir/gradle-helpers'
+  vcsUrl = 'https://github.com/kdabir/gradle-helpers'
+  description = 'Gradle build script helpers'
+  tags = ['utility', 'helper', 'functions' ]
+
+  plugins {
+    gradleHelpers {
+      id = 'io.github.kdabir.gradle-helpers'
+      displayName = 'Gradle build script helpers'
+    }
+  }
+}
