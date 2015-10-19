@@ -17,7 +17,7 @@ sourceSets {
     test.resources.srcDir 'testResources'
 }
 
-version = "0.0.1"
+version = "0.0.2"
 group = "io.github.kdabir.gradlehelpers"
 
 test {
@@ -39,4 +39,8 @@ pluginBundle {
             displayName = 'Gradle build script helpers'
         }
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
 }
