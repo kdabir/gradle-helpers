@@ -20,6 +20,13 @@ sourceSets {
 version = "0.0.1"
 group = "io.github.kdabir.gradlehelpers"
 
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "short"
+    }
+}
+
 pluginBundle {
     website = 'https://github.com/kdabir/gradle-helpers'
     vcsUrl = 'https://github.com/kdabir/gradle-helpers'
