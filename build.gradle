@@ -1,9 +1,9 @@
 plugins {
     id "groovy"
-    id "idea"
     id "maven"
     id "java-gradle-plugin"
     id "com.gradle.plugin-publish" version "0.9.1"
+    id 'net.researchgate.release' version '2.3.4'
 }
 
 repositories{
