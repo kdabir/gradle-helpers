@@ -34,7 +34,6 @@ sourceSets {
     test.resources.srcDirs = ['testResources']
 }
 
-version = "0.0.3-SNAPSHOT"
 group = "io.github.kdabir.gradlehelpers"
 
 test {
