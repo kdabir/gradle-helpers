@@ -6,18 +6,28 @@ plugins {
     id "com.gradle.plugin-publish" version "0.9.1"
 }
 
+repositories{
+    jcenter()
+}
+
 dependencies {
     compile localGroovy()
+
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4', {
+        exclude group:'org.codehaus.groovy'
+    }
 }
+
 
 sourceSets {
-    main.groovy.srcDir 'src'
-    main.resources.srcDir 'resources'
-    test.groovy.srcDir 'test'
-    test.resources.srcDir 'testResources'
+    main.groovy.srcDirs = ['src']
+    main.resources.srcDirs = ['resources']
+
+    test.groovy.srcDirs = ['test']
+    test.resources.srcDirs = ['testResources']
 }
 
-version = "0.0.2"
+version = "0.0.3-SNAPSHOT"
 group = "io.github.kdabir.gradlehelpers"
 
 test {

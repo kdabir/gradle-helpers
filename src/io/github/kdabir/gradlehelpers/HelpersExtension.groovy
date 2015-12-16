@@ -11,19 +11,19 @@ class HelpersExtension {
     }
 
     /**
-     * lists available methods on an object
+     * Lists available methods on an object
      *
      * @param obj
      * @return list of method names
      */
-    def methodsOf(obj) {
+    List<String> methodsOf(obj) {
         obj.metaClass.methods*.name.sort().unique()
     }
 
     /**
-     * loads properties from relative to project root
+     * Loads properties from file path relative to project root
      *
-     * @param filename - String
+     * @param filename path as String
      * @return properties object
      */
     Properties loadProperties(String filename) {
@@ -31,10 +31,10 @@ class HelpersExtension {
     }
 
     /**
-     * loads properties from file
+     * Loads properties from given file object
      *
-     * @param file - File Object
-     * @return properties object
+     * @param file File Object
+     * @return loaded properties object
      */
     Properties loadProperties(File file) {
         Properties properties = new Properties()
