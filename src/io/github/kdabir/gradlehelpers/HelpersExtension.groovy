@@ -16,7 +16,7 @@ class HelpersExtension {
      * @param obj
      * @return list of method names
      */
-    List<String> methodsOf(obj) {
+    List<String> methodsOf(Object obj) {
         obj.metaClass.methods*.name.sort().unique()
     }
 

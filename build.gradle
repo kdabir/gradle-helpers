@@ -1,3 +1,10 @@
+buildscript{
+    repositories {jcenter()}
+    dependencies {
+        classpath 'org.jsoup:jsoup:1.7.1'
+    }
+}
+
 plugins {
     id "groovy"
     id "maven"
@@ -54,3 +61,21 @@ pluginBundle {
 task wrapper(type: Wrapper) {
     gradleVersion = '2.9'
 }
+
+import org.jsoup.Jsoup
+
+task prepareDoc << {
+    def doc = Jsoup.parse(new File("build/docs/groovydoc/io/github/kdabir/gradlehelpers/HelpersExtension.html"), "UTF-8")
+    def methods = doc.select('div.details ul.blockList:eq(2) ul.blockListLast > li.blockList')
+    def out = methods.select('li').collect {
+        def method_name = it.select('h4 > strong').html()
+        def method_signature = it.select('h4').html()
+        def desc = it.select('p').html()
+
+        "- <code>$method_signature</code>\n" +
+        "    $desc"
+    }.join("\n")
+    println "PASTE THE FOLLOWING IN README:\n$out"
+}
+
+prepareDoc.dependsOn  groovydoc
