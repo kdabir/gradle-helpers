@@ -35,4 +35,45 @@ class GradleHelpersPluginSpec extends Specification {
         loadedProperties.testKey == 'value'
     }
 
+    def "getSourceDirs throws exception when no sourceSet defined on project"() {
+        given: "no java like plugin is applied"
+
+        when: "try to access sourceDirs"
+        project.helpers.sourceDirs
+
+        then:
+        thrown RuntimeException
+    }
+
+    def "getSourceDirs returns list of source directories"() {
+        given: "java like plugins are applied"
+        project.pluginManager.apply pluginName
+
+        when: "try to access sourceDirs"
+        def dirs = project.helpers.sourceDirs
+
+        then:
+        dirs.size() == expectedLength
+
+        where:
+        pluginName || expectedLength
+        'java'     || 4
+        'groovy'   || 6
+        'scala'    || 6
+    }
+
+    def "createSourceDirs creates directories"() {
+        given: "java like plugins is applied"
+        project.pluginManager.apply 'java'
+
+        assert !project.helpers.sourceDirs.any { it.exists() }
+
+        when: "method is called"
+        def result = project.helpers.createSourceDirs()
+
+        then:
+        project.helpers.sourceDirs.every { it.exists() }
+
+    }
+
 }

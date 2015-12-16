@@ -42,4 +42,21 @@ class HelpersExtension {
         return properties
     }
 
+    /**
+     * Returns all configured source directories
+     *
+     * @return list of {@link File} objects
+     */
+    List<File> getSourceDirs(){
+        project.sourceSets*.allSource.srcDirs.flatten()
+    }
+
+    /**
+     * Creates all the sourceSets directories
+     *
+     */
+    def createSourceDirs(){
+        sourceDirs*.mkdirs()
+    }
+
 }
