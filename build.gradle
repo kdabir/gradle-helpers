@@ -71,7 +71,7 @@ task prepareDoc << {
         def method_signature = it.select('h4').html()
         def desc = it.select('p').html()
 
-        "- <code>$method_signature</code>\n" +
+        "- <code>$method_signature</code>\n\n" +
         "    $desc"
     }.join("\n")
     println "PASTE THE FOLLOWING IN README:\n$out"
