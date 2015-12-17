@@ -18,16 +18,21 @@ Get helper methods in your build script
 ## Methods
 
 - <code>java.lang.Object <strong>createSourceDirs</strong>()</code>
+    
     Creates all the sourceSets directories
 
 - <code>java.util.List&lt;java.io.File&gt; <strong>getSourceDirs</strong>()</code>
+    
     Returns all configured source directories
 
 - <code>java.util.Properties <strong>loadProperties</strong>(java.lang.String filename)</code>
+    
     Loads properties from file path relative to project root
 
 - <code>java.util.Properties <strong>loadProperties</strong>(java.io.File file)</code>
+    
     Loads properties from given file object
 
 - <code>java.util.List&lt;java.lang.String&gt; <strong>methodsOf</strong>(java.lang.Object obj)</code>
+    
     Lists available methods on an object
