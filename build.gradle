@@ -6,10 +6,10 @@ buildscript {
 }
 
 plugins {
-    id "groovy"
-    id "maven"
-    id "java-gradle-plugin"
-    id "com.gradle.plugin-publish" version "0.9.2"
+    id 'groovy'
+    id 'maven'
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.9.2'
     id 'net.researchgate.release' version '2.3.4'
 }
 
@@ -24,7 +24,6 @@ dependencies {
         exclude group: 'org.codehaus.groovy'
     }
 }
-
 
 sourceSets {
     main.groovy.srcDirs = ['src']
