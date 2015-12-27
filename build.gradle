@@ -1,5 +1,5 @@
-buildscript{
-    repositories {jcenter()}
+buildscript {
+    repositories { jcenter() }
     dependencies {
         classpath 'org.jsoup:jsoup:1.7.1'
     }
@@ -13,7 +13,7 @@ plugins {
     id 'net.researchgate.release' version '2.3.4'
 }
 
-repositories{
+repositories {
     jcenter()
 }
 
@@ -21,7 +21,7 @@ dependencies {
     compile localGroovy()
 
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4', {
-        exclude group:'org.codehaus.groovy'
+        exclude group: 'org.codehaus.groovy'
     }
 }
 
@@ -72,10 +72,10 @@ task prepareDoc << {
         def desc = it.select('p').html()
 
         "- <code>$method_signature</code>\n\n" +
-        "    $desc"
+            "    $desc"
     }.join("\n")
     println "PASTE THE FOLLOWING IN README:\n$out"
 }
 
-prepareDoc.dependsOn  groovydoc
-publishPlugins.dependsOn tasks.release
+prepareDoc.dependsOn groovydoc
+afterReleaseBuild.dependsOn tasks.publishPlugins
