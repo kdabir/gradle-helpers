@@ -29,7 +29,7 @@ class GradleHelpersPluginSpec extends Specification {
 
     def "loadProperties reads properties file"() {
         when:
-        def loadedProperties = project.helpers.loadProperties(new File("testResources/test.properties"))
+        def loadedProperties = project.helpers.loadProperties(new File("src/test/resources/test.properties"))
 
         then:
         loadedProperties.testKey == 'value'

@@ -25,16 +25,6 @@ dependencies {
     }
 }
 
-sourceSets {
-    main.groovy.srcDirs = ['src']
-    main.resources.srcDirs = ['resources']
-
-    test.groovy.srcDirs = ['test']
-    test.resources.srcDirs = ['testResources']
-}
-
-group = "io.github.kdabir.gradlehelpers"
-
 test {
     testLogging {
         events "failed"
